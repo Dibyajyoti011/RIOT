@@ -1,0 +1,42 @@
+
+#include <stdio.h>
+int main()
+{
+    int i, high, low, mid, n, key, arr[100];
+    printf("Enter the number of Elements: ");
+    scanf("%d", &n);
+    printf("Enter the Elements: ");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter the number to be searched: ");
+    scanf("%d", &key);
+    low = 0;
+    high = n - 1;
+
+    while (low <= high)
+    {
+
+        mid = (high + low) / 2;
+        if (arr[mid] < key)
+        {
+            low = mid + 1;
+        }
+        else if (arr[mid] == key)
+        {
+            printf("%d is found at location %d", key,mid+1);
+            break;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    if (low > high)
+    {
+        printf("%d is not presant in the the list");
+    }
+
+    return 0;
+}
